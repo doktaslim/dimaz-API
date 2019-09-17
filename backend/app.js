@@ -3,13 +3,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const productRoutes = require('./routes/products');
 
+require('dotenv').config()
+
 const app = express();
 app.use(bodyParser.json());
 
 
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://doktaslim:escalzepat@dimaz-enterprise-2ayww.mongodb.net/test?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI || "mongodb+srv://doktaslim:escalzepat@dimaz-enterprise-2ayww.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true }, { useUnifiedTopology: true });
 client.connect(err => {
     const collection = client.db("test").collection("devices");
