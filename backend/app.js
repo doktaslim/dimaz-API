@@ -7,6 +7,14 @@ const app = express();
 app.use(bodyParser.json());
 
 
+<<<<<<< HEAD
+const uri = 'mongodb+srv://doktaslim:escalzepat@dimaz-enterprise-2ayww.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(uri, { useNewUrlParser: true }).then(() => {
+    console.log('Successfully connected to MongoDB Atlas!');
+}).catch((error) => {
+    console.log('Unable to connect to MongoDB Atlas!');
+    console.error(error);
+=======
 const MongoClient = require('mongodb').MongoClient;
 const uri = process.env.MONGODB_URI || "mongodb+srv://doktaslim:escalzepat@dimaz-enterprise-2ayww.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -15,6 +23,7 @@ client.connect(err => {
     // perform actions on the collection object
     console.log("Successfully Connected to Mongodb Atlas");
     client.close();
+>>>>>>> e7ba43fc3230277ffec3b5e757fcb306284e2252
 });
 
 
