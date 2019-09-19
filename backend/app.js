@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 
 
-const uri = 'mongodb+srv://doktaslim:escalzepat@dimaz-enterprise-2ayww.mongodb.net/test?retryWrites=true&w=majority';
+const uri = process.env.MONGODB_URI || 'mongodb+srv://doktaslim:escalzepat@dimaz-enterprise-2ayww.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true }).then(() => {
     console.log('Successfully connected to MongoDB Atlas!');
 }).catch((error) => {
